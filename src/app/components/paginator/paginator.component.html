@@ -1,0 +1,7 @@
+<div class="row mt-3 mb-3 justify-content-center">
+  <a *ngFor="let page of pages; let pageNumber = index"
+     (click)="changePage(pageNumber)"
+     [ngClass]="currentPage == pageNumber ? 'btn-dark' : 'btn-outline-dark'"
+     class="btn mr-2 ml-1"
+  >{{pageNumber + 1}}</a>
+</div>

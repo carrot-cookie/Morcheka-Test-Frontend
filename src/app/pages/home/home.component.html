@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="mt-5 container">
+    <button id="exit-button" class="btn btn-danger float-left" (click)="exit()">Выйти</button>
+    <button id="create-button" class="btn btn-success float-right" (click)="openCreateModal()">Создать</button>
+  </div>
+  <br>
+  <div class="mt-5">
+    <app-profile-card *ngFor="let profile of profiles" [profile]="profile" (update)="getAllProfiles()"></app-profile-card>
+  </div>
+  <div class="">
+    <app-paginator [pageable]="pageable"
+                    (pageChange)="getAllProfiles($event)"
+                    (contentChange)="onContentChanged($event)"></app-paginator>
+  </div>
+</div>
+<app-create-user #createUser (sent)="getAllProfiles()"></app-create-user>

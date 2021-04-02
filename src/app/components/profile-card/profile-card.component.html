@@ -1,0 +1,15 @@
+<div (mouseenter)="showButton = true" (mouseleave)="showButton = false" class="card m-3 mb-5">
+  <div class="card-body">
+    <div class="float-left">
+      <div class="card-title"><strong>{{profile.name}} {{profile.lastName}}</strong></div>
+      <div class="card-text">Логин: {{profile.login}}</div>
+      <div class="card-text">Дата рождения: {{profile.dateOfBirth}}</div>
+      <div class="card-text" *ngIf="profile.email !== null">Email: {{profile.email}}</div>
+    </div>
+    <button class="edit-button float-right btn btn-outline-info" *ngIf="showButton" (click)="openModal()">
+      Редактировать</button>
+  </div>
+</div>
+<app-edit-profile #editModal [profile]="profile" (sent)="infoUpdated()"></app-edit-profile>
+
+
